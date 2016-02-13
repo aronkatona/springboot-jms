@@ -1,6 +1,5 @@
 package com.aronkatona;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,7 +12,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.config.SimpleJmsListenerContainerFactory;
-import org.springframework.util.FileSystemUtils;
 
 @SpringBootApplication
 @EnableJms
@@ -27,7 +25,6 @@ public class SpringbootJmsApplication {
     }
 	
     public static void main(String[] args) {
-        FileSystemUtils.deleteRecursively(new File("activemq-data"));
 
         ConfigurableApplicationContext context = SpringApplication.run(SpringbootJmsApplication.class, args);
 
@@ -48,9 +45,7 @@ public class SpringbootJmsApplication {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-        
-        context.close();
-    	FileSystemUtils.deleteRecursively(new File("activemq-data"));   
+          
     }
 
 }
