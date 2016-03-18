@@ -14,7 +14,6 @@ public class Sender {
 	    JmsTemplate jmsTemplate = context.getBean(JmsTemplate.class);
 	    System.out.println("Sending a new message to: " + destinationName);
 	    jmsTemplate.convertAndSend(destinationName, text);
-	    asd
 	}
 	
 	public static void sendObjectToDestination(ConfigurableApplicationContext context,String destinationName,Map<String, String> message) {
